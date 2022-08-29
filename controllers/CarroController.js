@@ -45,3 +45,17 @@ export const carroDelete = (req, res) =>{
     carros.splice(id-1, 1)
     res.json({"msg": "Carro excluído com sucesso."})
 }
+
+
+export const carroShow = (req, res) =>{
+    //destructing
+    const {id} = req.params
+
+  
+    if(carros.length < id){
+        res.status(401)
+        res.json({"msg": "Ops, parece que o pneu furou..."})
+        return
+    }
+    res.json(carros[id-1])
+}
