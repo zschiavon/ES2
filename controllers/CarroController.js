@@ -6,3 +6,11 @@ const carros = [
 export const carroIndex = (req, res) =>{
     res.json(carros)
  }
+
+ export const carroStore = (req, res) =>{
+    //destructing
+    const {modelo, marca, ano, preco} = req.body
+    carros.push({modelo, marca, ano, preco})
+    
+    res.json({"msg": "Ok, Carro inserido com sucesso."})
+}
