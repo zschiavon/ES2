@@ -14,3 +14,20 @@ export const carroIndex = (req, res) =>{
     
     res.json({"msg": "Ok, Carro inserido com sucesso."})
 }
+export const carroUptade = (req, res) =>{
+    //destructing
+    const {id} = req.params
+    const {modelo, marca, ano, preco} = req.body
+    if(carros.length < id){
+        res.status(401)
+        res.json({"msg": "Ops, parece que o pneu furou..."})
+        return
+    }
+    
+    carros[id-1].modelo = modelo 
+    carros[id-1].marca = marca 
+    carros[id-1].ano = ano 
+    carros[id-1].preco = preco 
+
+    res.json({"msg": "Ok, Carro atualizado com sucesso."})
+}
