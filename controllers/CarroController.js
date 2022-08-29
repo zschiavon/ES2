@@ -31,3 +31,17 @@ export const carroUptade = (req, res) =>{
 
     res.json({"msg": "Ok, Carro atualizado com sucesso."})
 }
+
+export const carroDelete = (req, res) =>{
+    //destructing
+    const {id} = req.params
+    
+  
+    if(carros.length < id){
+        res.status(401)
+        res.json({"msg": "Ops, parece que o pneu furou..."})
+        return
+    }
+    carros.splice(id-1, 1)
+    res.json({"msg": "Carro excluído com sucesso."})
+}
